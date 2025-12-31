@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Dulce Alya Manager",
+  "description": "A comprehensive ice cream shop management system featuring POS, inventory management, customer CRM, and sales analytics.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

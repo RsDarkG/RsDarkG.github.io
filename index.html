@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dulce Alya Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Identity Services & GAPI -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js" async defer></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: {
+                50: '#fff1f2',
+                100: '#ffe4e6',
+                200: '#fecdd3',
+                300: '#fda4af',
+                400: '#fb7185',
+                500: '#f43f5e', // Main brand color (Rose-500)
+                600: '#e11d48',
+                700: '#be123c',
+                800: '#9f1239',
+                900: '#881337',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f8fafc; /* Slate-50 */
+      }
+      /* Hide scrollbar for clean UI in POS lists */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      
+      @media print {
+        @page { margin: 0; size: auto; }
+        body { background: white; -webkit-print-color-adjust: exact; }
+        
+        /* Ocultar todo lo que tenga la clase no-print */
+        .no-print, aside, nav, button, .toolbar {
+          display: none !important;
+        }
+
+        /* Asegurar que el contenido de la factura sea visible y ocupe todo */
+        #invoice-content {
+          visibility: visible !important;
+          position: absolute !important;
+          left: 0 !important;
+          top: 0 !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 20px !important;
+          box-shadow: none !important;
+          border: none !important;
+          background: white !important;
+        }
+
+        /* Ocultar contenedores padres para evitar espacios en blanco */
+        body > *:not(#root) { display: none; }
+        #root > div { display: block !important; }
+        /* Forzar visualización del contenedor principal */
+        main { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
